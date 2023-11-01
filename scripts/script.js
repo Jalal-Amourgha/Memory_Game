@@ -1,8 +1,12 @@
+const correct = document.getElementById("correct");
+const wrong = document.getElementById("wrong");
+const celebration = document.getElementById("celebration");
+
 function promptName() {
   let name = prompt("Enter Your Name : ");
 
   if (name === "" || name === null) {
-    name = "Unknown"
+    name = "Unknown";
   }
 
   document.getElementById("name").innerHTML = name;
@@ -10,12 +14,14 @@ function promptName() {
   document.querySelector(".start-button").remove();
 }
 
-
 //Effect Duration
 let duration = 1000;
 
 //Creat tries variable
 let tries = 0;
+
+// To Know if the user win
+let result = 0;
 
 //Select The Cards
 let gameCards = document.querySelector(".game-cards");
@@ -28,29 +34,23 @@ let orderRange = [...Array(cards.length).keys()];
 
 Shuffle(orderRange);
 
-
 cards.forEach((card, index) => {
-
   //Add Order To The Cards
   card.style.order = orderRange[index];
 
-  //Add click event 
+  //Add click event
   card.addEventListener("click", function () {
-
     fliptCards(card);
-
   });
-
 });
-
 
 //Shuffle Function
 function Shuffle(array) {
-
-  let current = array.length, temp, random;
+  let current = array.length,
+    temp,
+    random;
 
   while (current > 0) {
-
     //Get Random Number
     random = Math.floor(Math.random() * current);
 
@@ -62,70 +62,62 @@ function Shuffle(array) {
     array[current] = array[random];
 
     array[random] = temp;
-
   }
 
   return array;
-};
-
-
+}
 
 function fliptCards(card) {
-
   card.classList.add("flip");
 
-
-  let allFlipedCards = cards.filter((c) => c.classList.contains("flip")); 
+  let allFlipedCards = cards.filter((c) => c.classList.contains("flip"));
 
   if (allFlipedCards.length === 2) {
-
     //Stop Clicking
     stopClicking();
 
     //Cheking The Matched Cards
     matchedCards(allFlipedCards[0], allFlipedCards[1]);
-
-  };
-
-};
-
-
+  }
+}
 
 function stopClicking() {
-
   gameCards.classList.add("stop-clicking");
 
   setTimeout(() => {
-    
     gameCards.classList.remove("stop-clicking");
-
   }, duration);
-};
-
+}
 
 function matchedCards(firstCard, secondCard) {
-
   if (firstCard.dataset.language === secondCard.dataset.language) {
+    result++;
 
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
 
     firstCard.classList.add("has-matched");
     secondCard.classList.add("has-matched");
-  } else {
 
+    if (result < 10) {
+      correct.play();
+    } else if (result === 10) {
+      celebration.play();
+      document.getElementById("my-canvas").classList.remove("displya-none");
+      document.getElementById("my-canvas").classList.add("display-block");
+    }
+  } else {
     //Counting Thne Tries
     tries++;
+
+    wrong.play();
 
     //Display It In Screen
     document.getElementById("tries").innerHTML = tries;
 
-      setTimeout(() => {
-        firstCard.classList.remove("flip");
-        secondCard.classList.remove("flip");
-    } , duration);
-
-    
-  };
-};
-
+    setTimeout(() => {
+      firstCard.classList.remove("flip");
+      secondCard.classList.remove("flip");
+    }, duration);
+  }
+}

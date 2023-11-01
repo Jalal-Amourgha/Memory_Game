@@ -2,13 +2,17 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/icon.ico">
   <title>Memory Game</title>
 </head>
 
 <body>
+  <audio src="audio/Correct.mp3" id="correct"></audio>
+  <audio src="audio/Wrong.mp3" id="wrong"></audio>
+  <audio src="audio/Celebration.mp3" id="celebration"></audio>
 
   <!-- To Enter Your Name -->
   <div class="start-button">
@@ -21,7 +25,7 @@
       <h3>Hello <span id="name"></span></h3>
     </div>
     <div>
-      <h3>Wrong tries : <span id="tries">0</span></h3>
+      <h3>Wrong Tries : <span id="tries">0</span></h3>
     </div>
   </div>
 
@@ -30,126 +34,133 @@
     <div class="game-card" data-language="angular">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/angular.png" alt="icon">
+        <img src="images/angular.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="angular">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/angular.png" alt="icon">
+        <img src="images/angular.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="bootstrap">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/bootstrap.png" alt="icon">
+        <img src="images/bootstrap.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="bootstrap">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/bootstrap.png" alt="icon">
+        <img src="images/bootstrap.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="css">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/css.png" alt="icon">
+        <img src="images/css.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="css">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/css.png" alt="icon">
+        <img src="images/css.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="docker">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/docker.png" alt="icon">
+        <img src="images/docker.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="docker">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/docker.png" alt="icon">
+        <img src="images/docker.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="html">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/html.png" alt="icon">
+        <img src="images/html.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="html">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/html.png" alt="icon">
+        <img src="images/html.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="js">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/js.png" alt="icon">
+        <img src="images/js.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="js">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/js.png" alt="icon">
+        <img src="images/js.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="nodejs">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/nodejs.png" alt="icon">
+        <img src="images/nodejs.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="nodejs">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/nodejs.png" alt="icon">
+        <img src="images/nodejs.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="python">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/python.png" alt="icon">
+        <img src="images/python.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="python">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/python.png" alt="icon">
+        <img src="images/python.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="react">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/react.png" alt="icon">
+        <img src="images/react.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="react">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/react.png" alt="icon">
+        <img src="images/react.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="swift">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/swift.png" alt="icon">
+        <img src="images/swift.png" alt="icon" />
       </div>
     </div>
     <div class="game-card" data-language="swift">
       <div class="face font"></div>
       <div class="face back">
-        <img src="images/swift.png" alt="icon">
+        <img src="images/swift.png" alt="icon" />
       </div>
     </div>
   </div>
 
+  <canvas id="my-canvas" class="display-none"></canvas>
 </body>
-<script src="script.js"></script>
+<script src="scripts/script.js"></script>
+<script src="scripts/index.min.js"></script>
+<script>
+  var confettiSettings = { target: "my-canvas" };
+  var confetti = new ConfettiGenerator(confettiSettings);
+  confetti.render();
+</script>
 
 </html>
