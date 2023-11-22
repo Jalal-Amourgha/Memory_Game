@@ -4,12 +4,12 @@ Welcome to the Memory Game! Test your memory skills by matching pairs of hidden 
 
 ## **Table of Contents**
 
-- [Overview](https://chat.openai.com/c/8b2a45a5-241c-4be8-b7fa-ed938bb1c15b#overview)
-- [Features](https://chat.openai.com/c/8b2a45a5-241c-4be8-b7fa-ed938bb1c15b#features)
-- [How to Play](https://chat.openai.com/c/8b2a45a5-241c-4be8-b7fa-ed938bb1c15b#how-to-play)
-- [Try the Game](https://chat.openai.com/c/8b2a45a5-241c-4be8-b7fa-ed938bb1c15b#try-the-game)
-- [Technologies Used](https://chat.openai.com/c/8b2a45a5-241c-4be8-b7fa-ed938bb1c15b#technologies-used)
-- [Screenshots](https://chat.openai.com/c/8b2a45a5-241c-4be8-b7fa-ed938bb1c15b#screenshots)
+- Overview
+- Features
+- How to Play
+- Try the Game
+- Technologies Used
+- Screenshots
 
 ## **Overview**
 
